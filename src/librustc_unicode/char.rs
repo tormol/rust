@@ -427,6 +427,8 @@ impl char {
     /// let result = 'ß'.encode_utf8(&mut b);
     ///
     /// assert_eq!(result, Some(2));
+    ///
+    /// assert_eq!(b, [0xc3, 0x9f]);
     /// ```
     ///
     /// A buffer that's too small:
@@ -439,6 +441,8 @@ impl char {
     /// let result = 'ß'.encode_utf8(&mut b);
     ///
     /// assert_eq!(result, None);
+    ///
+    /// assert_eq!(b, [0]);
     /// ```
     #[unstable(feature = "unicode",
                reason = "pending decision about Iterator/Writer/Reader",
@@ -467,6 +471,8 @@ impl char {
     /// let result = '𝕊'.encode_utf16(&mut b);
     ///
     /// assert_eq!(result, Some(2));
+    ///
+    /// assert_eq!(b, [0xd835, 0xdd4a]);
     /// ```
     ///
     /// A buffer that's too small:
@@ -479,6 +485,8 @@ impl char {
     /// let result = '𝕊'.encode_utf16(&mut b);
     ///
     /// assert_eq!(result, None);
+    ///
+    /// assert_eq!(b, [0]);
     /// ```
     #[unstable(feature = "unicode",
                reason = "pending decision about Iterator/Writer/Reader",
